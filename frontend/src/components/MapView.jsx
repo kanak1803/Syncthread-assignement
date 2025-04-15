@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import "leaflet/dist/leaflet.css";
 
 const MapView = () => {
   const { id } = useParams();
   const [mapType, setMapType] = useState("standard");
   const [loading, setLoading] = useState(true);
+  const { state } = useLocation();
+
+  const cardTitle = state?.title || `Card ${id}`;
 
   useEffect(() => {
     const fetchCardDetails = async () => {
@@ -69,9 +72,7 @@ const MapView = () => {
           <div className="flex justify-between items-center">
             <div className="flex items-center">
               <div>
-                <h1 className="text-lg font-bold text-gray-800">
-                  {`Card ${id}`}
-                </h1>
+                <h1 className="text-lg font-bold text-gray-800">{cardTitle}</h1>
               </div>
             </div>
 

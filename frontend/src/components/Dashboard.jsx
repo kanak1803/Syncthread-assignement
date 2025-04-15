@@ -30,8 +30,8 @@ const Dashboard = () => {
     fetchDashboardCards();
   }, [token]);
 
-  const handleCardClick = (cardId) => {
-    navigate(`/map-view/${cardId}`);
+  const handleCardClick = (card) => {
+    navigate(`/map-view/${card.id}`, { state: { title: card.title } });
   };
 
   const filteredCards = cards.filter(
@@ -89,11 +89,11 @@ const Dashboard = () => {
             <>
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-xl font-semibold text-gray-700">
-                  {searchTerm ? "Search Results" : "All Cards"}
+                  {searchTerm ? "Search Results" : "All Mission"}
                 </h2>
                 <span className="text-sm text-gray-500">
                   {filteredCards.length}{" "}
-                  {filteredCards.length === 1 ? "card" : "cards"} found
+                  {filteredCards.length === 1 ? "Mission" : "Missions"} found
                 </span>
               </div>
 
@@ -114,7 +114,7 @@ const Dashboard = () => {
                   {filteredCards.map((card) => (
                     <div
                       key={card.id}
-                      onClick={() => handleCardClick(card.id)}
+                      onClick={() => handleCardClick(card)}
                       className="transform transition duration-300 hover:scale-105 hover:shadow-lg"
                     >
                       <Card title={card.title} description={card.description} />
