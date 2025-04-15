@@ -13,7 +13,7 @@
   --box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
-/* Base element styling */
+
 body {
   @apply font-sans text-gray-800 bg-gray-50 min-h-screen;
   font-family: "Inter", system-ui, -apple-system, sans-serif;
@@ -46,7 +46,7 @@ a {
   @apply text-blue-600 hover:text-blue-800 transition-colors;
 }
 
-/* Form elements */
+
 input,
 select,
 textarea {
@@ -57,7 +57,7 @@ button {
   @apply px-4 py-2 rounded font-medium transition-colors;
 }
 
-/* Custom utility classes */
+
 .btn {
   @apply px-4 py-2 rounded font-medium transition-colors;
 }
@@ -86,7 +86,7 @@ button {
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
-/* Animations */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -100,7 +100,7 @@ button {
   animation: fadeIn 0.3s ease-in;
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 640px) {
   .container-custom {
     @apply px-2;

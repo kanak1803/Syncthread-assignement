@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import Card from "./Card";
 import { fetchCards } from "../services/api";
-// Import Lucide React icons
 import { Search, AlertCircle, Loader, FrownIcon } from "lucide-react";
 
 const Dashboard = () => {

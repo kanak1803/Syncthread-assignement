@@ -10,7 +10,6 @@ const PublicRoute = ({ children }) => {
     return <Navigate to="/dashboard" replace />;
   }
 
-  // If not logged in, allow access to the route
   return children;
 };
 

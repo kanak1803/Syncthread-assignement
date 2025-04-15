@@ -29,7 +29,7 @@ Password: admin123
 ```bash
 cd backend
 npm install
-npm run dev
+npm start run
 
 ```
 
