@@ -100,7 +100,7 @@ const Dashboard = () => {
             <>
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-xl font-semibold text-gray-700">
-                  {searchTerm ? "Search Results" : "All Mission"}
+                  {searchTerm ? "Search Results" : "All Missions"}
                 </h2>
                 <span className="text-sm text-gray-500">
                   {filteredCards.length}{" "}
