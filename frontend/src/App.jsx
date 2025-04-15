@@ -5,12 +5,20 @@ import ProtectedRoute from "./components/ProtectedRoute";
 
 import Dashboard from "./components/Dashboard";
 import MapView from "./components/MapView";
+import PublicRoute from "./components/PublicRoute";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route
+          path="/"
+          element={
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
+          }
+        />
 
         <Route
           path="/dashboard"

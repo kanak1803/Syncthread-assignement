@@ -12,7 +12,7 @@ const Dashboard = () => {
   const [error, setError] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
-  const { token } = useAuth();
+  const { token, setToken } = useAuth();
 
   useEffect(() => {
     const fetchDashboardCards = async () => {
@@ -34,6 +34,12 @@ const Dashboard = () => {
     navigate(`/map-view/${card.id}`, { state: { title: card.title } });
   };
 
+  const handleLogout = () => {
+    setToken(null);
+    localStorage.removeItem("token");
+    navigate("/");
+  };
+
   const filteredCards = cards.filter(
     (card) =>
       card.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -42,11 +48,11 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      <header className="bg-white shadow-md">
+      <header className="bg-white shadow-md ">
         <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
           <h1 className="text-3xl font-bold text-gray-800">Dashboard</h1>
-          <div className="mt-4 md:mt-0 w-full md:w-1/3">
-            <div className="relative">
+          <div className="mt-4 md:mt-0 w-full md:w-2/3 flex items-center justify-end gap-4">
+            <div className="relative w-full max-w-sm">
               <input
                 type="text"
                 placeholder="Search cards..."
@@ -58,12 +64,17 @@ const Dashboard = () => {
                 <Search size={20} />
               </div>
             </div>
+            <button
+              onClick={handleLogout}
+              className="px-4 py-2 bg-red-600 text-white hover:bg-red-700 rounded-lg text-sm font-medium transition"
+            >
+              Logout
+            </button>
           </div>
         </div>
       </header>
 
       <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        {/* Dashboard content */}
         <div className="px-4 py-6 sm:px-0">
           {loading && (
             <div className="flex flex-col items-center justify-center py-20">
@@ -89,11 +100,11 @@ const Dashboard = () => {
             <>
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-xl font-semibold text-gray-700">
-                  {searchTerm ? "Search Results" : "All Mission"}
+                  {searchTerm ? "Search Results" : "All Cards"}
                 </h2>
                 <span className="text-sm text-gray-500">
                   {filteredCards.length}{" "}
-                  {filteredCards.length === 1 ? "Mission" : "Missions"} found
+                  {filteredCards.length === 1 ? "card" : "cards"} found
                 </span>
               </div>
 
