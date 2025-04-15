@@ -100,11 +100,11 @@ const Dashboard = () => {
             <>
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-xl font-semibold text-gray-700">
-                  {searchTerm ? "Search Results" : "All Cards"}
+                  {searchTerm ? "Search Results" : "All Mission"}
                 </h2>
                 <span className="text-sm text-gray-500">
                   {filteredCards.length}{" "}
-                  {filteredCards.length === 1 ? "card" : "cards"} found
+                  {filteredCards.length === 1 ? "Mission" : "Missions "} found
                 </span>
               </div>
 
