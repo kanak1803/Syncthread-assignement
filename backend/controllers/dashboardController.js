@@ -1,10 +1,8 @@
-const dummyCards = [
-    { id: 1, title: "Card 1", description: "Description of Card 1" },
-    { id: 2, title: "Card 2", description: "Description of Card 2" },
-    { id: 3, title: "Card 3", description: "Description of Card 3" },
+export const getDashboard = (req, res) => {
+  const cards = [
+    { id: 1, title: "Mission Alpha", description: "Secure Zone A" },
+    { id: 2, title: "Mission Bravo", description: "Survey Zone B" },
+    { id: 3, title: "Mission Charlie", description: "Recon Zone C" },
   ];
-  
-  exports.getDashboardData = (req, res) => {
-    res.json(dummyCards);
-  };
-  
+  res.json(cards);
+};
